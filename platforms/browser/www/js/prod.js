@@ -166,7 +166,7 @@ $(document).ready(function(){
         	
 
         if(localStorage.getItem("prods")==null){
-        	localStorage.setItem("prices",JSON.stringify(prices));
+            localStorage.setItem("prices",JSON.stringify(prices));
     	    localStorage.setItem("prods",JSON.stringify(prods));
     	    localStorage.setItem("cants",JSON.stringify(cants));
     	    localStorage.setItem("espf",JSON.stringify(esps));
@@ -347,7 +347,7 @@ function(isConfirm){
     	var prods1 =JSON.parse( localStorage.getItem("prods"));
     	var cants1 =JSON.parse( localStorage.getItem("cants"));
     	var esps1 =JSON.parse( localStorage.getItem("espf"));
-    	if(prods.length==0){
+    	if(prods1.length==0){
     	$("#payOrder").prop("disabled",true);	
     	}
     	$("#pedidoL").append('<li><p class="pname">Resumen de orden <span id="totalT" class="price"></span></p> </li>');
@@ -356,10 +356,9 @@ function(isConfirm){
     	    total = total + parseInt(prices1[i]*cants1[i]);
     	    $("#pedidoL").append('<li><p class="pname"><span class="iname">'+prods1[i]+' ('+cants1[i]+')</span><span class="price">$'+parseFloat(prices1[i]).toFixed(2)+'&nbsp;<a data-item="'+i+'" class="citem" href=""><i class="fa fa-times "></i></a></span></p> </li>');
     	}
-
+        //var h = getHours();
+        //var x = $("#hora").min = h;
     	$("#total").append('<p>Total de orden ('+tc+' artículo(s))</p><h1 >$'+total+'</h1>');
-    	
-
     }
     function canOrder(elm){
     	 $.ajax({
@@ -413,6 +412,7 @@ function(isConfirm){
   	content.append("espf",localStorage.getItem("espf"));
   	content.append("escuela",localStorage.getItem("school"));
   	content.append("coments",$("#comentarios").val());
+        content.append("horas",$("#hora").val());
   	 $.ajax({
 	 url: "http://www.icone-solutions.com/tlunch/conekta.php",
 	 type: "POST",

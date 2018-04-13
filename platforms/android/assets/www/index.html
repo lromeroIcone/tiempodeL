@@ -257,10 +257,11 @@
        </div>
 
   </div>
+    <!--carrito -->
   <div data-role="page" id="carrito">
       <div data-role="panel" id="panelp7">
-      	<img src="img/logob.png" class="elm-cent" width="120px" /><br />
-      	<img src="img/cuenta.png" class="elm-cent" width="120px" /><br />
+      	<img src="img/logob.png" class="elm-cent" width="120" /><br />
+      	<img src="img/cuenta.png" class="elm-cent" width="120" /><br />
       	<div class="datos elm-cent">
       		<img src="img/user.png" class="useri" />
       		<div>
@@ -285,12 +286,12 @@
      </div>
      <div data-role="header" class="headerb">
           <a href="#panelp7" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
-          <img class="logoi elm-cent" width="170px"  src="img/pedidos.png" />
+          <img class="logoi elm-cent" width="170"  src="img/pedidos.png" />
           <a href="#carrito" data-transition="slideup" class="cart" ></a> 
     </div>
     <div data-role="main" class="ui-content">
     <div class="lback">
-    	<img src="img/peds.png"  width="100%" />
+    	<img src="img/peds.png" width="100"/>
     	<div class="innerl">
     		<br />
     		<div id="total" class="headt">
@@ -298,14 +299,15 @@
     		</div>
     		<ul id="pedidoL">
     			<li><p class="pname">Resumen de orden <span id="totalT" class="price"></span></p> </li>
-    			
-    			
+
     		</ul><br />
     		<form id="payForm" method="post"></form>
-    		<div class="areacon">
+    		
+                <div class="areacon">
+                    <label class="pedido">Programa tu pedido:</label><input type="time" id="hora">
     		<textarea id="comentarios" rows="5" placeholder="Deja algún comentario para tu pedido..."></textarea>
     		</div>
-    		<button id="payOrder" type="button" class="confb" ><p>Confirmar</p></button>
+    		<button id="payOrder" type="button" class="confb"><p>Confirmar</p></button>
     		<br /><br />
     	</div>
     </div>
@@ -323,6 +325,7 @@
        </div>
 
   </div>
+    <!-- fin seccion carrito -->
   <div data-role="page" id="ayuda">
       <div data-role="panel" id="panelp8">
       	<img src="img/logob.png" class="elm-cent" width="120px" /><br />
