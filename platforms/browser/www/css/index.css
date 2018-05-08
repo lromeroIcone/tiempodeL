@@ -432,6 +432,12 @@ body {
 #igds-listbox{
 	background: #000;
 }
+#guarns{
+    display: none;
+}
+#guarns-listbox{
+	background: #000;
+}
 .schoolS{
 	width: 100% !important;
 	border-radius: 5px;

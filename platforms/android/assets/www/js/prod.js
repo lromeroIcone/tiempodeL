@@ -1,35 +1,35 @@
 $(document).ready(function(){
-	var prods =new Array();
+    var prods =new Array();
     var prices =new Array();
     var cants =new Array();
     var esps =new Array();
-   if(localStorage.getItem("prods")!=null){
+    var adic= new Array();
+    if(localStorage.getItem("prods")!=null){
    	$("#payOrder").prop("disabled",false);
-   }
+    }
     $(document).on( "pagechange", function( event ) { 
     	prices =new Array();
     	prods =new Array();
     	cants =new Array();
     	esps =new Array();
+        adic= new Array();
     	if($.mobile.activePage.attr('id')=="pedidos"){
-    		getOrders();
+            getOrders();
     	}
     	
     	$(".fixAdd").children().children().text("$0.00");
     });
     document.addEventListener("backbutton", function(e){
-    	
-    
-           if($.mobile.activePage.is('#inicio')){
+        if($.mobile.activePage.is('#inicio')){
 
-           }
-           else {
-        navigator.app.backHistory()
-          }
-         }, false);
+        }
+        else {
+            navigator.app.backHistory()
+        }
+    }, false);
     function getOrders(){
     	$("#orderlist").html("");
-    var client = localStorage.getItem("user");
+        var client = localStorage.getItem("user");
 	$.ajax({
 	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
 	type: "POST",
@@ -64,18 +64,18 @@ $(document).ready(function(){
 	
 	success: function(data){
         $("#comlist").empty();
-		var jsonObj = jQuery.parseJSON(data);
-		var nombres = jsonObj[0].split("_");
-		var precios = jsonObj[1].split("_");
-		var ids = jsonObj[2].split("_");
-		if(nombres[0]!=""){
+            var jsonObj = jQuery.parseJSON(data);
+            var nombres = jsonObj[0].split("_");
+            var precios = jsonObj[1].split("_");
+            var ids = jsonObj[2].split("_");
+            if(nombres[0]!=""){
 		for(var i=0;i<nombres.length;i++){
-			var extra = "";
-			if(nombres[i].length >20){
-				var extra = "...";
-			}
-			//$("#comlist").append('<li><p class="pname">'+nombres[i]+' <a class="aplus" href=""><i class="fa fa-plus "></i></a><span class="cants">0</span><a class="aminus" href=""><i class="fa fa-minus"></i></a><span class="price">$'+precios[i]+'</span></p> </li>');
-			$("#comlist").append('<li><p class="pname"><span class="iname">'+nombres[i].substr(0,20)+extra+'</span> <a class="showi" data-prod="'+ids[i]+'" href="" ><img width="20px" src="img/lista.png" /></a><span class="price">$'+precios[i]+'</span></p> </li>');
+                    var extra = "";
+                    if(nombres[i].length >20){
+                        var extra = "...";
+                    }
+                    //$("#comlist").append('<li><p class="pname">'+nombres[i]+' <a class="aplus" href=""><i class="fa fa-plus "></i></a><span class="cants">0</span><a class="aminus" href=""><i class="fa fa-minus"></i></a><span class="price">$'+precios[i]+'</span></p> </li>');
+                    $("#comlist").append('<li><p class="pname"><span class="iname">'+nombres[i].substr(0,20)+extra+'</span> <a class="showi" data-prod="'+ids[i]+'" href="" ><img width="20px" src="img/lista.png" /></a><span class="price">$'+precios[i]+'</span></p> </li>');
 		}
        }
        
@@ -131,30 +131,45 @@ $(document).ready(function(){
 	data: {idp: idp},
 	
 	success: function(data){
-		var jsonObj = jQuery.parseJSON(data);
-		var options = jsonObj[3];
-		$("#igds").html("");
-		$("#igds").append('<option>Elije tus ingredientes</option>');
-		if(options.length>0){
-			$("#igds-button").show();
+            var jsonObj = jQuery.parseJSON(data);
+            var options = jsonObj[3];
+            var nuevos = jsonObj[4];
+            //console.log(nuevos);
+            $("#igds").html("");
+            $("#igds").append('<option>Elije tus ingredientes</option>');
+            if(options.length>0){
+                $("#igds-button").show();
 			
-		for(var i =0;i<options.length;i++){
+                for(var i =0;i<options.length;i++){
 			
-			$("#igds").append('<option value="'+options[i][0]+'">'+options[i][1]+'</option>');
+                    $("#igds").append('<option value="'+options[i][0]+'">'+options[i][1]+'</option>');
 		}
-		}else{
-			$("#igds-button").hide();
+            }else{
+                $("#igds-button").hide();
+            }
+            $("#guarns").html("");
+            $("#guarns").append('<option>Elige tus guarniciones</option>');
+            if(nuevos.length>0){
+                $("#guarns-button").show();
+			
+                for(var j =0;j<nuevos.length;j++){
+			
+                    $("#guarns").append('<option value="'+nuevos[j]+'">'+nuevos[j]+'</option>');
 		}
-		 $("#igds").selectmenu("refresh");
-       $(".innerDiv").find(".namepr").text(jsonObj[0]);
-       $(".innerDiv").find(".descpr").text("Descripción:");
+            }else{
+                $("#guarns-button").hide();
+            }
+            $("#igds").selectmenu("refresh");
+            $("#guarns").selectmenu("refresh");
+            $(".innerDiv").find(".namepr").text(jsonObj[0]);
+            $(".innerDiv").find(".descpr").text("Descripción:");
        
-       $(".innerDiv").find(".descpr").append("<br/>"+jsonObj[2]);
-       $(".innerDiv").find(".price").text("$"+jsonObj[1]);
+            $(".innerDiv").find(".descpr").append("<br/>"+jsonObj[2]);
+            $(".innerDiv").find(".price").text("$"+jsonObj[1]);
 		
-  },
+        },
 	error: function(data){
-		swal("Error","Revisa tu conexión y vuelve a intentarlo","error")
+            swal("Error","Revisa tu conexión y vuelve a intentarlo","error")
 	}
     });
     	 $.mobile.navigate( "#prodi", { transition : "slideup",info: "info about the #foo hash" });
@@ -170,24 +185,28 @@ $(document).ready(function(){
     	    localStorage.setItem("prods",JSON.stringify(prods));
     	    localStorage.setItem("cants",JSON.stringify(cants));
     	    localStorage.setItem("espf",JSON.stringify(esps));
+            localStorage.setItem("adio",JSON.stringify(adic));
         }else{
         
-        var prices1 = JSON.parse(localStorage.getItem("prices"));
-    	var prods1 = JSON.parse(localStorage.getItem("prods"));
-    	var cants1 = JSON.parse(localStorage.getItem("cants"));
-    	var esps1 = JSON.parse(localStorage.getItem("espf"));
+            var prices1 = JSON.parse(localStorage.getItem("prices"));
+            var prods1 = JSON.parse(localStorage.getItem("prods"));
+            var cants1 = JSON.parse(localStorage.getItem("cants"));
+            var esps1 = JSON.parse(localStorage.getItem("espf"));
+            var adic1 = JSON.parse(localStorage.getItem("adio"));
     	      for(var i=0;i<prices.length;i++){
     	      	
     	      	if(prods1.indexOf(prods[i])==-1){
-    		       prods1.push(prods[i]);
+    		    prods1.push(prods[i]);
     		
-    	           prices1.push(prices[i]);
-    	           cants1.push(cants[i]);
-                   esps1.push(esps[i]);
+                    prices1.push(prices[i]);
+                    cants1.push(cants[i]);
+                    esps1.push(esps[i]);
+                    adic1.push(adic[i]);
     	        }else{
-    		         prices1[prods1.indexOf(prods[i])] = parseFloat(prices1[prods1.indexOf(prods[i])])+parseFloat(prices[i]);
-    		         cants1[prods1.indexOf(prods[i])] +=1;
-                     esps1[prods1.indexOf(prods[i])] = esps[i];
+                    prices1[prods1.indexOf(prods[i])] = parseFloat(prices1[prods1.indexOf(prods[i])])+parseFloat(prices[i]);
+                    cants1[prods1.indexOf(prods[i])] +=1;
+                    esps1[prods1.indexOf(prods[i])] = esps[i];
+                    adic1[prods1.indexOf(prods[i])] = adic[i];
     	         }
     		       
     	      }
@@ -196,6 +215,7 @@ $(document).ready(function(){
     	      localStorage.setItem("prods",JSON.stringify(prods1));
     	      localStorage.setItem("cants",JSON.stringify(cants1));
     	      localStorage.setItem("espf",JSON.stringify(esps1));
+              localStorage.setItem("adio",JSON.stringify(adic1));
     	      
         }
         $(".cants").text("0");
@@ -219,15 +239,18 @@ $(document).ready(function(){
     	var name= $(this).parent().parent().parent().find(".namepr").text();
     	var text2= $(this).parent().parent().parent().find(".pname").find(".price").text().split("$");
     	var val = $(this).val();
+        var ex = $(this).val();
     	val = val.toString();
+        ex = val.toString();
     	if(prods.indexOf(name)==-1){
-    		prods.push(name);
+            prods.push(name);
     	    esps.push(val);
     	    prices.push(text2[1]);
     	    cants.push(0);
-    	
+            adic.push(ex);
     	}else{
-    		esps[prods.indexOf(name)] = val;
+            esps[prods.indexOf(name)] = val;
+            adic[prods.indexOf(name)] = ex;
     	}
     });
     
@@ -242,23 +265,18 @@ $(document).ready(function(){
     	var $add = $(this).parent().parent().parent().parent().parent().parent().find(".fixAdd");
     	
     	if(prods.indexOf(name)==-1){
-    		prods.push(name);
-    		esps.push("0");
+            prods.push(name);
+            esps.push("0");
+            adic.push("0");
     	    prices.push(text2[1]);
     	    cants.push(1);
-    	   
-    	
-    	}else{
-    		cants[prods.indexOf(name)] +=1;
-    		
-    		
+    	} else{
+            cants[prods.indexOf(name)] +=1;	
     	}
     	
     	var total = 0;
     	for(var i=0; i<prices.length;i++){
-    		
-    		total +=  parseFloat(prices[i])*cants[i];
-    		
+            total +=  parseFloat(prices[i])*cants[i];
     	}
     	$add.children().children().text("$"+total.toFixed(2));
     	
@@ -347,8 +365,9 @@ function(isConfirm){
     	var prods1 =JSON.parse( localStorage.getItem("prods"));
     	var cants1 =JSON.parse( localStorage.getItem("cants"));
     	var esps1 =JSON.parse( localStorage.getItem("espf"));
+        var adic1 =JSON.parse( localStorage.getItem("adio"));
     	if(prods1.length==0){
-    	$("#payOrder").prop("disabled",true);	
+            $("#payOrder").prop("disabled",true);	
     	}
     	$("#pedidoL").append('<li><p class="pname">Resumen de orden <span id="totalT" class="price"></span></p> </li>');
     	for(var i=0;i<prices1.length;i++){
@@ -386,15 +405,18 @@ function(isConfirm){
     	var prods1 =JSON.parse( localStorage.getItem("prods"));
     	var cants1 =JSON.parse( localStorage.getItem("cants"));
     	var esps1 =JSON.parse( localStorage.getItem("espf"));
-    	prices1.splice(elm, 1);
+    	var adic1 =JSON.parse( localStorage.getItem("adio"));
+        prices1.splice(elm, 1);
     	prods1.splice(elm, 1);
     	cants1.splice(elm, 1);
     	esps1.splice(elm, 1);
+        edic1.splice(elm, 1);
     	localStorage.setItem("prices",JSON.stringify(prices1));
     	localStorage.setItem("prods",JSON.stringify(prods1));
     	localStorage.setItem("cants",JSON.stringify(cants1));
     	localStorage.setItem("espf",JSON.stringify(esps1));
-    	addToCart();
+    	localStorage.setItem("adio",JSON.stringify(adic1));
+        addToCart();
     	if(prods.length==0){
     	$("#payOrder").prop("disabled",true);	
     	}
@@ -411,6 +433,7 @@ function(isConfirm){
   	content.append("cants",localStorage.getItem("cants"));
   	content.append("espf",localStorage.getItem("espf"));
   	content.append("escuela",localStorage.getItem("school"));
+        content.append("adic",localStorage.getItem("adio"));
   	content.append("coments",$("#comentarios").val());
         content.append("horas",$("#hora").val());
   	 $.ajax({
@@ -431,7 +454,9 @@ function(isConfirm){
             localStorage.removeItem("prods");
             localStorage.removeItem("prices");
             localStorage.removeItem("cants");
+            localStorage.removeItem("adio");
             $("#comentarios").val("");
+            $("#hora").val("");
             $("#pedidoL").html("");
             $("#pedidoL").append('<li><p class="pname">Resumen de orden <span id="totalT" class="price"></span></p> </li>');
             $("#total").html("");
