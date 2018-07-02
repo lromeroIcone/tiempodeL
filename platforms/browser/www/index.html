@@ -4,7 +4,7 @@
 
 <head>
 	<script>
-	
+
     </script>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
@@ -32,52 +32,53 @@
      <p id="mess"></p>
      <form id="logForm" >
      	<input class="inputF" type="text" name="user" />
-     	<label class="labelF">Usuario</label>
+     	<label class="labelF">Correo Electrónico</label>
      	<input class="inputF" type="password" name="pass" />
      	<label class="labelF">Contraseña</label>
      	<a href="#forgetP" data-transition="slidedown"  class="loga">¿Olvidaste tu contraseña?</a>
      	<a href="#signIn" data-transition="slideup" class="loga">¿Aún no tienes cuenta? Registrate Aquí</a>
      	<button id="enter"  class="enterb" ><p>CONTINUAR</p></button>
-     	
+
      </form>
- 
-   
+
+
   </div>
   <div data-role="page" id="forgetP">
      <div class="loads"><i class="fa fa fa-circle-o-notch fa-spin fa-2x"></i></div>
      <img class="elm-cent logolog" width="230px" src="img/logo.png" />
      <h1 class="title">Ingresa el correo con el que te registraste</h1>
      <form id="forForm" >
-     	
+
      	<input class="inputF" type="text" name="userf" />
      	<label class="labelF">Correo Electrónico</label>
-     	
+
      	<button id="forg"  class="enterb" ><p>Aceptar</p></button>
-     	
+
      </form>
- 
-   
+
+
   </div>
    <div data-role="page" id="signIn">
      <div class="loads"><i class="fa fa fa-circle-o-notch fa-spin fa-2x"></i></div>
      <img class="elm-cent logolog" width="230px" src="img/logo.png" />
      <h1 class="title">Registrate</h1>
-     <p id="mess"></p>
+     <p id="mess"></p><br>
      <form id="regForm" >
-     	<input class="inputF" type="text" name="nombre" />
-     	<label class="labelF">Nombre Completo</label>
-     	<input class="inputF" type="text" name="user" />
-     	<label class="labelF">Correo Electrónico</label>
-     	<input class="inputF" type="password" name="pass" />
-     	<label class="labelF">Contraseña</label>
-     	<select name="escuela"  id="schoolList"></select>
+		  <label class="labelF">Nombre Completo</label>
+			<input class="inputF" type="text" name="nombre" /><br>
+			<label class="labelF">Correo Electrónico</label>
+     	<input class="inputF" type="text" name="user" /><br>
+  		<label class="labelF">Contraseña</label>
+     	<input class="inputF" type="password" name="pass" id="pass" /><br>
+     	<label class="labelF">Confirmar contraseña</label>
+			<input class="inputF" type="password" name="pass1" id="pass1" /><br>
      	<label class="labelF">Escuela</label>
-     	
+     	<select name="escuela"  id="schoolList"></select>
      	<button id="rega"  class="enterb" ><p>Aceptar</p></button>
-     	
+
      </form>
- 
-   
+
+
   </div>
   <div data-role="page" id="inicio">
       <div data-role="panel" id="panelp1">
@@ -88,14 +89,14 @@
       		<div>
       		<p class="usuario">correo@electronico.com</p>
       		</div>
-      		
+
       	</div>
       	<p class="crediT">Crédito Disponible:</p>
         <p class="credit">$0.00</p>
       	<br />
       	<p class="sTitle">Cafeterías</p>
       	<select class="schoolS">
-      		
+
       	</select>
        <ul data-role="listview">
         <li class="menitem" data-icon="false"><a href="#inicio" data-transition="slidedown">Menú</a></li>
@@ -104,24 +105,24 @@
         <li class="menitem" data-icon="false"><a href="#ayuda" data-transition="slide">Ayuda</a></li>
         <li class="menitem" data-icon="false"><a href="#notificaciones" data-transition="slide">Notificaciones</a></li>
         <li class="menitem" data-icon="false"><a href="#popd" data-rel="popup" data-position-to="window" data-transition="pop"  >Cerrar Sesión</a></li>
-      
+
       </ul>
      </div>
      <div data-role="header" class="headerb">
           <a href="#panelp1" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
           <img class="logoi elm-cent" width="170px"  src="img/menub.png" />
-          <a href="#carrito" data-transition="slideup" class="cart" ></a> 
+          <a href="#carrito" data-transition="slideup" class="cart" ></a>
     </div>
-    
+
     <div  data-role="main" class="ui-content">
     	<a class="promo">
     	 <img class="logoi elm-cent" width="170px"  src="img/promociones.png" />
     </a>
     <div id="categories">
-    	
+
     </div>
-    
- 	
+
+
  	</div>
     <div data-role="popup" id="popd" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
     <div data-role="header" data-theme="a">
@@ -134,10 +135,10 @@
          </div>
        </div>
   </div>
-  
 
-   
-  
+
+
+
   <div data-role="page" id="comida">
 	<div data-role="panel" id="panelp2">
       	<img src="img/logob.png" class="elm-cent" width="120px" /><br />
@@ -152,7 +153,7 @@
         <p class="credit">$0.00</p>
       	<br />
       	<select class="schoolS">
-      		
+
       	</select>
        <ul data-role="listview">
         <li class="menitem" data-icon="false"><a href="#inicio" data-transition="slide">Menú</a></li>
@@ -161,27 +162,27 @@
         <li class="menitem" data-icon="false"><a href="#ayuda" data-transition="slide">Ayuda</a></li>
         <li class="menitem" data-icon="false"><a href="#notificaciones" data-transition="slide">Notificaciones</a></li>
         <li class="menitem" data-icon="false"><a href="#popdc" data-rel="popup" data-position-to="window" data-transition="pop" >Cerrar Sesión</a></li>
-      
+
       </ul>
      </div>
       <div data-role="header" class="headerb">
           <a href="#panelp2" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
           <img class="logoi elm-cent" width="170px"  src="img/comida.png" />
-          <a href="#carrito" data-transition="slideup" class="cart" ></a> 
+          <a href="#carrito" data-transition="slideup" class="cart" ></a>
     </div>
   <div data-role="main" class="ui-content">
     <div class="lback">
     	<!--<img src="img/bannerc.png"  width="100%" height="250px"/>-->
     	<div class="innerl">
-    		
+
     		<ul id="comlist">
-    			
+
     		</ul>
     		<br /><br />
     	</div>
     </div>
-    
- 	
+
+
  	</div>
  	<div data-role="popup" id="popdc" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
     <div data-role="header" data-theme="a">
@@ -194,10 +195,10 @@
          </div>
        </div>
  </div>
- 
- 
- 
- 
+
+
+
+
   <div data-role="page" id="pedidos">
       <div data-role="panel" id="panelp6">
       	<img src="img/logob.png" class="elm-cent" width="120px" /><br />
@@ -212,7 +213,7 @@
         <p class="credit">$0.00</p>
       	<br />
       	<select class="schoolS">
-      		
+
       	</select>
        <ul data-role="listview">
         <li class="menitem" data-icon="false"><a href="#inicio" data-transition="slidedown">Menú</a></li>
@@ -221,29 +222,29 @@
         <li class="menitem" data-icon="false"><a href="#ayuda" data-transition="slide">Ayuda</a></li>
         <li class="menitem" data-icon="false"><a href="#notificaciones" data-transition="slide">Notificaciones</a></li>
         <li class="menitem" data-icon="false"><a href="#popdch" data-rel="popup" data-position-to="window" data-transition="pop">Cerrar Sesión</a></li>
-      
+
       </ul>
      </div>
      <div data-role="header" class="headerb">
           <a href="#panelp6" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
           <img class="logoi elm-cent" width="170px"  src="img/pedidos.png" />
-          <a href="#carrito" data-transition="slideup" class="cart" ></a> 
+          <a href="#carrito" data-transition="slideup" class="cart" ></a>
     </div>
     <div data-role="main" class="ui-content">
     <div class="lback">
     	<img src="img/peds.png"  width="100%" />
     	<div class="innerl">
     		<br />
-    		
+
     		<ul id="orderlist">
     			<li><p class="tname">Productos </p><a class="atimes" href=""><i class="fa fa-times "></i></a><span class="pricet">Tiempo</span> <span class="pricet">Total</span></li>
-    			
+
     		</ul><br />
-    		
+
     		<br /><br />
     	</div>
     </div>
- 	
+
  	</div>
  	<div data-role="popup" id="popdch" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
     <div data-role="header" data-theme="a">
@@ -272,7 +273,7 @@
         <p class="credit">$0.00</p>
       	<br />
       	<select class="schoolS">
-      		
+
       	</select>
        <ul data-role="listview">
         <li class="menitem" data-icon="false"><a href="#inicio" data-transition="slidedown">Menú</a></li>
@@ -281,13 +282,13 @@
         <li class="menitem" data-icon="false"><a href="#ayuda" data-transition="slide">Ayuda</a></li>
         <li class="menitem" data-icon="false"><a href="#notificaciones" data-transition="slide">Notificaciones</a></li>
         <li class="menitem" data-icon="false"><a href="#popdpay" data-rel="popup" data-position-to="window" data-transition="pop">Cerrar Sesión</a></li>
-      
+
       </ul>
      </div>
      <div data-role="header" class="headerb">
           <a href="#panelp7" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
           <img class="logoi elm-cent" width="170"  src="img/pedidos.png" />
-          <a href="#carrito" data-transition="slideup" class="cart" ></a> 
+          <a href="#carrito" data-transition="slideup" class="cart" ></a>
     </div>
     <div data-role="main" class="ui-content">
     <div class="lback">
@@ -295,14 +296,14 @@
     	<div class="innerl">
     		<br />
     		<div id="total" class="headt">
-    		
+
     		</div>
     		<ul id="pedidoL">
     			<li><p class="pname">Resumen de orden <span id="totalT" class="price"></span></p> </li>
 
     		</ul><br />
     		<form id="payForm" method="post"></form>
-    		
+
                 <div class="areacon">
                     <label class="pedido">Programa tu pedido:</label><input type="time" id="hora">
     		<textarea id="comentarios" rows="5" placeholder="Deja algún comentario para tu pedido..."></textarea>
@@ -311,7 +312,7 @@
     		<br /><br />
     	</div>
     </div>
- 	
+
  	</div>
  	<div data-role="popup" id="popdpay" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
     <div data-role="header" data-theme="a">
@@ -340,7 +341,7 @@
         <p class="credit">$0.00</p>
       	<br />
       	<select class="schoolS">
-      		
+
       	</select>
        <ul data-role="listview">
         <li class="menitem" data-icon="false"><a href="#inicio" data-transition="slidedown">Menú</a></li>
@@ -349,25 +350,25 @@
         <li class="menitem" data-icon="false"><a href="#ayuda" data-transition="slide">Ayuda</a></li>
         <li class="menitem" data-icon="false"><a href="#notificaciones" data-transition="slide">Notificaciones</a></li>
         <li class="menitem" data-icon="false"><a href="#popay" data-rel="popup" data-position-to="window" data-transition="pop">Cerrar Sesión</a></li>
-      
+
       </ul>
      </div>
      <div data-role="header" class="headerb">
           <a href="#panelp8" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
           <img class="logoi elm-cent" width="170px"  src="img/ayuda.png" />
-          <a href="#carrito" data-transition="slideup" class="cart" ></a> 
+          <a href="#carrito" data-transition="slideup" class="cart" ></a>
     </div>
     <div data-role="main" class="ui-content">
     <div class="ayudamen" >
-    	
+
     	<a href="#contacto" data-transition="fade">Contáctanos</a>
     	<a>Terminos y condiciones</a>
     	<a>Aviso de privacidad</a>
     	<a>Afiliaciones</a>
     	<a>Como usar la app</a>
-    	
+
     </div>
- 	
+
  	</div>
  	<div data-role="popup" id="popay" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
     <div data-role="header" data-theme="a">
@@ -395,7 +396,7 @@
         <p class="credit">$0.00</p>
       	<br />
       	<select class="schoolS">
-      		
+
       	</select>
        <ul data-role="listview">
         <li class="menitem" data-icon="false"><a href="#inicio" data-transition="slidedown">Menú</a></li>
@@ -404,13 +405,13 @@
         <li class="menitem" data-icon="false"><a href="#ayuda" data-transition="slide">Ayuda</a></li>
         <li class="menitem" data-icon="false"><a href="#notificaciones" data-transition="slide">Notificaciones</a></li>
         <li class="menitem" data-icon="false"><a href="#popcon" data-rel="popup" data-position-to="window" data-transition="pop">Cerrar Sesión</a></li>
-      
+
       </ul>
      </div>
      <div data-role="header" class="headerb">
           <a href="#panelp9" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
           <img class="logoi elm-cent" width="170px"  src="img/ayuda.png" />
-          <a href="#carrito" data-transition="slideup" class="cart" ></a> 
+          <a href="#carrito" data-transition="slideup" class="cart" ></a>
     </div>
     <div data-role="main" class="ui-content">
     <div >
@@ -422,9 +423,9 @@
     		<textarea name="mensaje" rows="6"></textarea><br />
     		<button   class="confn" ><p>Enviar</p></button>
     	</form>
-    	
+
     </div>
- 	
+
  	</div>
  	<div data-role="popup" id="popcon" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
     <div data-role="header" data-theme="a">
@@ -453,7 +454,7 @@
         <p class="credit">$0.00</p>
       	<br />
       	<select class="schoolS">
-      		
+
       	</select>
         <ul data-role="listview">
             <li class="menitem" data-icon="false"><a href="#inicio" data-transition="slide">Menú</a></li>
@@ -467,7 +468,7 @@
     <div data-role="header" class="headerb">
         <a href="#panelp10" id="menbu" class="menub ui-btn ui-icon-home ui-btn-icon-left" ></a>
         <img class="logoi elm-cent" width="170"  src="img/comida.png" />
-        <a href="#carrito" data-transition="slideup" class="cart" ></a> 
+        <a href="#carrito" data-transition="slideup" class="cart" ></a>
     </div>
     <div data-role="main" class="ui-content">
         <div class="lback">
@@ -493,7 +494,7 @@
         </div>
         <div id="addProd" class="fixAdd">
             <button class="addButton">Añadir al Carrito <span>$0.00</span></button>
- 	</div>	
+ 	</div>
     </div>
     <div data-role="popup" id="poppi" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
         <div data-role="header" data-theme="a">
