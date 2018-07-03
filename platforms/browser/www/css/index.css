@@ -16,6 +16,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+ @font-face {
+   font-family: 'branboll';
+   src: url('../fonts/BrannbollFS_PERSONAL.ttf');
+ }
 * {
     -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
 }
@@ -26,7 +30,7 @@ body {
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
     background: url("../img/woodt.png") !important;
     background-size:cover !important;
-   
+
     font-family:'futuraL',  sans-serif;
     font-size:12px;
     height:100%;
@@ -39,6 +43,7 @@ body {
     font-size:16px;
     font-weight:bolder;
     text-align: center;
+    margin-bottom: -8%;
 }
 .sTitle{
     font-size:14px;
@@ -68,7 +73,7 @@ body {
 }
 /* Portrait layout (default) */
 .app {
-    
+
     position:absolute;             /* position in the center of the screen */
     left:50%;
     top:50%;
@@ -92,7 +97,7 @@ body {
 }
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    
+
 }
 .lback{
     padding: 20px;
@@ -118,7 +123,7 @@ body {
 .cants{
 	margin-top:-5px;
 	padding: 3px 5px;
-	
+
 	float: right;
 }
 .aplus:hover, .aminus:hover, .atimes:hover, .citem:hover{
@@ -126,7 +131,7 @@ body {
 	color: #fff !important;
 }
 .innerl{
-	
+
     margin-top:-4px;
     background: rgba(0,0,0,0.6);
     -webkit-transform: skewX(-2.5deg) rotate(-2.5deg);  ;
@@ -155,7 +160,7 @@ body {
 }
 .fixAdd{
 	width:100%;
-	
+
 	position: fixed;
 	bottom: 0;
 	left:0;
@@ -171,7 +176,7 @@ body {
 .fixAdd button:hover{
 	background: #fff !important;
 	color: #ff0049;
-	
+
 }
 .ft{
 	font-size: 10px;
@@ -211,10 +216,10 @@ body {
     -o-transform: skewX(2.5deg)  rotate(2.5deg);  ;
     transform: skewX(2.5deg) rotate(2.5deg);  ;
     -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
-	
+
 }
 .innerl form{
-	
+
 	padding: 10px 25px;
 	 -webkit-transform: skewX(2.5deg) rotate(3deg);  ;
     -khtml-transform: skewX(2.5deg) rotate(3deg);  ;
@@ -223,10 +228,10 @@ body {
     -o-transform: skewX(2.5deg)  rotate(3deg);  ;
     transform: skewX(2.5deg) rotate(3deg);  ;
     -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
-	
+
 }
 .innerDiv{
-	
+
 	padding: 10px 25px;
 	 -webkit-transform: skewX(2.5deg) rotate(3deg);  ;
     -khtml-transform: skewX(2.5deg) rotate(3deg);  ;
@@ -235,7 +240,7 @@ body {
     -o-transform: skewX(2.5deg)  rotate(3deg);  ;
     transform: skewX(2.5deg) rotate(3deg);  ;
     -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
-	
+
 }
 .innerDiv h1{
 	color: orange;
@@ -267,7 +272,7 @@ body {
 	 display: flow-root;
 	 color: #fff;
 	 padding: 5px 0;
-	 
+
 	 border-bottom: 2px solid #fff;
 }
 
@@ -321,7 +326,7 @@ body {
     -o-transform: skewX(10.5deg)  rotate(3deg); ;
     transform: skewX(10.5deg)  rotate(3deg); ;
     -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
-	
+
 }
 .menusecs{
 	margin-top: -50px;
@@ -344,7 +349,7 @@ body {
 }
 .loads i{
   display: table;
-  margin: auto;	
+  margin: auto;
 }
 .useri{
 	width:20px;
@@ -371,7 +376,7 @@ body {
 	position: absolute;
 	left: 20px;
 	top:35px;
-	
+
 }
 
 .menitem a{
@@ -405,12 +410,12 @@ body {
 }
 .ui-select a:hover{
 	color: #fff;
-	
+
 }
 .ui-btn.ui-checkbox-off.ui-btn-icon-right{
 	border:none;
 	color: #fff;
-	
+
 }
 .ui-btn.ui-checkbox-on.ui-btn-icon-right{
 	border: 1px solid orange;
@@ -418,7 +423,7 @@ body {
 }
 .innerDiv > .pname{
 	font-size: 16px;
-	
+
 }
 .iname{
 	 overflow: hidden;
@@ -520,7 +525,7 @@ span.schoolS{
     transform: skewX(-10.5deg)  rotate(-3deg); ;
     -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
 
-  
+
     border: 1px solid #a91e23;
     transition: all ease 0.5s;
 }
@@ -531,7 +536,7 @@ span.schoolS{
 .enterb p{
 	letter-spacing:1px;
 	margin:0;
-	
+
 	font-size:18px;
 	margin-bottom: 6px;
 	text-align:center;
@@ -542,7 +547,7 @@ span.schoolS{
     -o-transform: skewX(10.5deg)  rotate(3deg); ;
     transform: skewX(10.5deg)  rotate(3deg); ;
     -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
-	
+
 }
 .confb{
 	display:table;
@@ -562,7 +567,7 @@ span.schoolS{
     transform: skewX(-1.5deg)  rotate(0deg); ;
     -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
 
-  
+
     border: 1px solid #a91e23;
     transition: all ease 0.5s;
 }
@@ -573,7 +578,7 @@ span.schoolS{
 .confb p{
 	letter-spacing:1px;
 	margin:0;
-	
+
 	font-size:18px;
 	margin-bottom: 6px;
 	text-align:center;
@@ -584,7 +589,7 @@ span.schoolS{
     -o-transform: skewX(2.5deg)  rotate(4deg); ;
     transform: skewX(2.5deg)  rotate(4deg); ;
     -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
-	
+
 }
 .confn{
 	display:table;
@@ -604,7 +609,7 @@ span.schoolS{
     transform: skewX(-2.5deg)  rotate(-4deg); ;
     -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
 
-  
+
     border: 1px solid #a91e23;
     transition: all ease 0.5s;
 }
@@ -615,7 +620,7 @@ span.schoolS{
 .confn p{
 	letter-spacing:1px;
 	margin:0;
-	
+
 	font-size:18px;
 	margin-bottom: 6px;
 	text-align:center;
@@ -626,14 +631,14 @@ span.schoolS{
     -o-transform: skewX(2.5deg)  rotate(4deg); ;
     transform: skewX(2.5deg)  rotate(4deg); ;
     -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
-	
+
 }
 h1 {
 	color:#fff;
     font-size:24px;
     font-weight:lighter;
     margin:0px;
-    
+
     overflow:visible;
     padding:0px;
     text-align:center;
@@ -665,13 +670,13 @@ h1 {
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 @-webkit-keyframes fade {
     from { opacity: 1.0; }
     50% { opacity: 0.4; }
     to { opacity: 1.0; }
 }
- 
+
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
@@ -697,4 +702,27 @@ h1 {
     transform: skewX(2.5deg) rotate(2.5deg);  ;
     -webkit-transform-origin: 0 0; /* Chrome, Safari, Opera */
     color: white;
+}
+.princip{
+  font-family: 'branboll';
+  font-size: 50px !important;
+  text-transform: none !important;
+  margin-top: 5% !important;
+  margin-bottom: -13% !important;
+  padding: 0 0 !important;
+}
+.cuenta{
+  color: #4883c5 !important;
+  font-family: 'branboll';
+  text-transform: none !important;
+  font-size: 36px;
+  margin-bottom: -9%;
+}
+.comida{
+  font-family: 'branboll';
+  font-size: 45px !important;
+  text-transform: none !important;
+  margin-top: 5% !important;
+  margin-bottom: -13% !important;
+  padding: 0 0 !important;
 }
