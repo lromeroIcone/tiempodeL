@@ -137,7 +137,9 @@ var user="";
 	    	$.mobile.navigate( "#login", { transition : "slide",info: "info about the #foo hash" });
 
 
-	    }else{
+	    } else if(data.toString()=="1"){
+        swal("Error","Este usuario ya fue registrado.","error");
+      }else{
            swal("Error",data.toString(),"error");
 	    }
 	    $("#rega").prop("disabled",false);
