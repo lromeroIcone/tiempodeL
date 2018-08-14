@@ -1,6 +1,5 @@
 if(localStorage.getItem("user")!=null){
-
-    	$.mobile.navigate( "#inicio", {transition:"pop" });
+	$.mobile.navigate( "#inicio", {transition:"pop" });
 }
 if(localStorage.getItem("school")!=null){
 	getCategories();
@@ -95,88 +94,85 @@ var user="";
         });
     }
     function getCategories(){
-    var esc = localStorage.getItem("school");
-    console.log(esc);
-	$.ajax({
-	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
-	type: "POST",
-	data: {cats: esc},
-
-	success: function(data){
-
-        $("#categories").empty();
-		var jsonObj = jQuery.parseJSON(data);
-
-		for(var i=0;i<jsonObj.length;i++){
-			if(i==0){
-				$("#categories").append('<a  data-catg="'+jsonObj[i][0]+'" class="elm-cent gtsec"  ><img width="100%" src="img/'+jsonObj[i][1]+'" /></a>');
-			}else{
-			$("#categories").append('<a  data-catg="'+jsonObj[i][0]+'" class="elm-cent menusecs gtsec"  ><img width="100%" src="img/'+jsonObj[i][1]+'" /></a>');
-			}
-			}
-
-    }
-
-    });
+      var esc = localStorage.getItem("school");
+      console.log(esc);
+    	$.ajax({
+      	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
+      	type: "POST",
+      	data: {cats: esc},
+        success: function(data){
+          $("#categories").empty();
+	        var jsonObj = jQuery.parseJSON(data);
+	        for(var i=0;i<jsonObj.length;i++){
+		         if(i==0){
+		           $("#categories").append('<a  data-catg="'+jsonObj[i][0]+'" class="elm-cent gtsec"  ><img width="100%" src="img/'+jsonObj[i][1]+'" /></a>');
+	           } else{
+	             $("#categories").append('<a  data-catg="'+jsonObj[i][0]+'" class="elm-cent menusecs gtsec"  ><img width="100%" src="img/'+jsonObj[i][1]+'" /></a>');
+	           }
+	        }
+        }
+      });
     }
     function register(){
     	var form = new FormData($("#regForm")[0]);
     	$.ajax({
-	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
-	type: "POST",
-	data: form,
-	contentType: false,
-	cache: false,
-	processData:false,
-	success: function(data){
-		 $.mobile.loading( "hide" );
-	    if(data.toString()=="0"){
-	    	var datos = data.toString().split(",");
+      	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
+      	type: "POST",
+      	data: form,
+      	contentType: false,
+      	cache: false,
+      	processData:false,
+      	success: function(data){
+      		 $.mobile.loading( "hide" );
+      	    if(data.toString()=="0"){
+      	    	var datos = data.toString().split(",");
 
-            swal("Listo","Tu usuario ha sido registrado exitosamente.","success");
-	    	$.mobile.navigate( "#login", { transition : "slide",info: "info about the #foo hash" });
+                  swal("Listo","Tu usuario ha sido registrado exitosamente.","success");
+      	    	$.mobile.navigate( "#login", { transition : "slide",info: "info about the #foo hash" });
 
 
-	    } else if(data.toString()=="1"){
-        swal("Error","Este usuario ya fue registrado.","error");
-      }else{
-           swal("Error",data.toString(),"error");
-	    }
-	    $("#rega").prop("disabled",false);
-	    }
-
+      	    } else if(data.toString()=="1"){
+              swal("Error","Este usuario ya fue registrado.","error");
+            }else{
+                 swal("Error",data.toString(),"error");
+      	    }
+      	    $("#rega").prop("disabled",false);
+      	    }
         });
     }
 
     function forgetP(){
     	var form = new FormData($("#forForm")[0]);
     	$.ajax({
-	url: "http://www.icone-solutions.com/tlunch/forget.php",
-	type: "POST",
-	data: form,
-	contentType: false,
-	cache: false,
-	processData:false,
-	success: function(data){
-		 $.mobile.loading( "hide" );
-	    if(data.toString()=="0"){
+      	url: "http://www.icone-solutions.com/tlunch/forget.php",
+      	type: "POST",
+      	data: form,
+      	contentType: false,
+      	cache: false,
+      	processData:false,
+      	success: function(data){
+      		 $.mobile.loading( "hide" );
+      	    if(data.toString()=="0"){
 
 
-            swal("Listo","Se ha enviado un mensaje a tu cuenta de correo con la información de tu contraseña.","success");
-	    	$.mobile.navigate( "#login", { transition : "slideup",info: "info about the #foo hash" });
+                  swal("Listo","Se ha enviado un mensaje a tu cuenta de correo con la información de tu contraseña.","success");
+      	    	$.mobile.navigate( "#login", { transition : "slideup",info: "info about the #foo hash" });
 
 
-	    }else{
-           swal("Error",data.toString(),"error");
-	    }
-	    $("#forg").prop("disabled",false);
-	    }
+      	    }else{
+                 swal("Error",data.toString(),"error");
+      	    }
+      	    $("#forg").prop("disabled",false);
+      	    }
 
         });
     }
 
 $(document).ready(function(){
-	getSchoolsC();
+	 //getSchoolsC();
+   $( '#inicio' ).on( 'pagebeforeshow',function(event){
+         getSchoolsC();
+      });
     $(".schoolS").change(function(){
     	localStorage.setItem("school",$(this).val());
     	getCategories();
@@ -267,7 +263,6 @@ $(document).ready(function(){
 		var nombres = jsonObj[1].split(",");
 		if(nombres[0]!=""){
 		for(var i=0;i<nombres.length;i++){
-
 			$("#schoolList").append('<option value="'+id[i]+'">'+nombres[i]+'</option>');
 		}
        }
