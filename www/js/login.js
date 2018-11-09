@@ -4,13 +4,14 @@ if(localStorage.getItem("user")!=null){
 if(localStorage.getItem("school")!=null){
 	getCategories();
 }
+
 var user="";
 var school="";
 var ban = false;
 function getCredit(){
 	var user = localStorage.getItem("user");
 	$.ajax({
-		url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
+		url: "https://www.icone-solutions.com/tlunch/sqlOP.php",
 		type: "POST",
 		data: {correo: user},
 		success: function(data){
@@ -28,7 +29,7 @@ function getCredit(){
 
 function getSchoolsC(){
 	$.ajax({
-		url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
+		url: "https://www.icone-solutions.com/tlunch/sqlOP.php",
 		type: "POST",
 		data: {gs: 0},
 
@@ -54,7 +55,7 @@ function login(){
 
 	form.append("regID",localStorage.getItem('registrationId'));
 	$.ajax({
-		url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
+		url: "https://www.icone-solutions.com/tlunch/sqlOP.php",
 		type: "POST",
 		data: form,
 		contentType: false,
@@ -82,15 +83,15 @@ function login(){
 	    	$("#mess").show();
 	    }
 	    $("#enter").prop("disabled",false);
-	}
+    }
 
-        });
+  });
     }
     function getCategories(){
       var esc = localStorage.getItem("school");
       console.log(esc);
     	$.ajax({
-      	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
+      	url: "https://www.icone-solutions.com/tlunch/sqlOP.php",
       	type: "POST",
       	data: {cats: esc},
         success: function(data){
@@ -109,7 +110,7 @@ function login(){
     function register(){
     	var form = new FormData($("#regForm")[0]);
     	$.ajax({
-      	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
+      	url: "https://www.icone-solutions.com/tlunch/sqlOP.php",
       	type: "POST",
       	data: form,
       	contentType: false,
@@ -137,7 +138,7 @@ function login(){
     function forgetP(){
     	var form = new FormData($("#forForm")[0]);
     	$.ajax({
-      	url: "http://www.icone-solutions.com/tlunch/forget.php",
+      	url: "https://www.icone-solutions.com/tlunch/forget.php",
       	type: "POST",
       	data: form,
       	contentType: false,
@@ -160,6 +161,27 @@ function login(){
 
         });
     }
+
+		function getSchools(){
+		$.ajax({
+		url: "https://www.icone-solutions.com/tlunch/sqlOP.php",
+		type: "POST",
+		data: {school: 1},
+
+		success: function(data){
+
+			var jsonObj = jQuery.parseJSON(data);
+			var id = jsonObj[0].split(",");
+			var nombres = jsonObj[1].split(",");
+			if(nombres[0]!=""){
+			for(var i=0;i<nombres.length;i++){
+				$("#schoolList").append('<option value="'+id[i]+'">'+nombres[i]+'</option>');
+			}
+				 }
+			}
+
+			});
+		}
 
 $(document).ready(function(){
 	 //getSchoolsC();
@@ -243,26 +265,7 @@ $(document).ready(function(){
     	getCredit();
     });
 
-	function getSchools(){
-	$.ajax({
-	url: "http://www.icone-solutions.com/tlunch/sqlOP.php",
-	type: "POST",
-	data: {school: 1},
-
-	success: function(data){
-
-		var jsonObj = jQuery.parseJSON(data);
-		var id = jsonObj[0].split(",");
-		var nombres = jsonObj[1].split(",");
-		if(nombres[0]!=""){
-		for(var i=0;i<nombres.length;i++){
-			$("#schoolList").append('<option value="'+id[i]+'">'+nombres[i]+'</option>');
-		}
-       }
-    }
-
-    });
-    }
+	/**/
 
 
 getSchools();
