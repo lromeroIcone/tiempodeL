@@ -705,6 +705,9 @@ h1 {
     font-weight: bold;
     border: 1px solid white;
 }
+#hora::placeholder{
+  color: white;
+}
 .princip{
   font-family: 'branboll';
   font-size: 50px !important;

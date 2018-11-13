@@ -1,11 +1,6 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<script>
-
-    </script>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
@@ -14,7 +9,7 @@
     <meta http-equiv="Content-Security-Policy" content="default-src *; img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *; style-src  'self' 'unsafe-inline' *" />
 
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css" />
+		<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
@@ -25,7 +20,8 @@
 </head>
 
 <body>
-    <div data-role="page" id="login">
+	<!-- login -->
+	<div data-role="page" id="login">
      <div class="loads"><i class="fa fa fa-circle-o-notch fa-spin fa-2x"></i></div>
      <img class="elm-cent logolog" width="230px" src="img/logo.png" />
      <h1 class="title">Inicia Sesión</h1>
@@ -36,38 +32,33 @@
      	<input class="inputF" type="password" name="pass" />
      	<label class="labelF">Contraseña</label>
      	<a href="#forgetP" data-transition="slidedown"  class="loga">¿Olvidaste tu contraseña?</a>
-     	<a href="#signIn" data-transition="slideup" class="loga">¿Aún no tienes cuenta? Registrate Aquí</a>
+     	<a href="#signIn" data-transition="slideup" class="loga">¿Aún no tienes cuenta? Regístrate Aquí</a>
      	<button id="enter"  class="enterb" ><p>CONTINUAR</p></button>
 
      </form>
-
-
   </div>
+	<!-- olvidaste tu contraseña -->
   <div data-role="page" id="forgetP">
      <div class="loads"><i class="fa fa fa-circle-o-notch fa-spin fa-2x"></i></div>
      <img class="elm-cent logolog" width="230px" src="img/logo.png" />
      <h1 class="title">Ingresa el correo con el que te registraste</h1>
      <form id="forForm" >
-
      	<input class="inputF" type="text" name="userf" />
      	<label class="labelF">Correo Electrónico</label>
-
      	<button id="forg"  class="enterb" ><p>Aceptar</p></button>
-
      </form>
-
-
   </div>
+	<!-- Registrarse -->
    <div data-role="page" id="signIn">
      <div class="loads"><i class="fa fa fa-circle-o-notch fa-spin fa-2x"></i></div>
      <img class="elm-cent logolog" width="230px" src="img/logo.png" />
-     <h1 class="title">Registrate</h1>
+     <h1 class="title">Regístrate</h1>
      <p id="mess"></p><br>
      <form id="regForm" >
 		  <label class="labelF">Nombre Completo</label>
-			<input class="inputF" type="text" name="nombre" /><br>
+			<input class="inputF nameval" type="text" name="nombre" /><br>
 			<label class="labelF">Correo Electrónico</label>
-     	<input class="inputF" type="text" name="user" /><br>
+     	<input class="inputF" type="email" name="user" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_-]+([.][a-zA-Z0-9_-]+)*[.][a-zA-Z]{1,5}"/><br>
   		<label class="labelF">Contraseña</label>
      	<input class="inputF" type="password" name="pass" id="pass" /><br>
      	<label class="labelF">Confirmar contraseña</label>
@@ -75,11 +66,9 @@
      	<label class="labelF">Escuela</label>
      	<select name="escuela"  id="schoolList"></select>
      	<button id="rega"  class="enterb" ><p>Aceptar</p></button>
-
      </form>
-
-
   </div>
+	<!-- inicio -->
   <div data-role="page" id="inicio">
       <div data-role="panel" id="panelp1">
       	<img src="img/logob.png" class="elm-cent" width="120px" /><br />
@@ -117,14 +106,12 @@
     </div>
 
     <div  data-role="main" class="ui-content">
-    	<a class="promo">
+    	<!--<a class="promo">
     	 <img class="logoi elm-cent" width="170px"  src="img/promociones.png" />
-    </a><br>
+    </a><br>-->
     <div id="categories">
 
     </div>
-
-
  	</div>
     <div data-role="popup" id="popd" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
     <div data-role="header" data-theme="a">
@@ -137,10 +124,7 @@
          </div>
        </div>
   </div>
-
-
-
-
+	<!-- comida -->
   <div data-role="page" id="comida">
 	<div data-role="panel" id="panelp2">
       	<img src="img/logob.png" class="elm-cent" width="120px" /><br />
@@ -199,9 +183,6 @@
          </div>
        </div>
  </div>
-
-
-
 
   <div data-role="page" id="pedidos">
       <div data-role="panel" id="panelp6">
@@ -313,7 +294,7 @@
     		<form id="payForm" method="post"></form>
 
             <div class="areacon">
-            <label class="pedido">Programa tu pedido:</label><input type="time" id="hora">
+            <label class="pedido">Programa tu pedido:</label><input type="time" id="hora" placeholder="Aqui">
     		<textarea id="comentarios" rows="5" placeholder="Deja algún comentario para tu pedido..."></textarea>
     		</div>
     		<button id="payOrder" type="button" class="confb"><p>Confirmar</p></button>
@@ -527,7 +508,7 @@
   <script src="js/index.js" ></script>
   <script src="js/prod.js" ></script>
   <script src="js/login.js"></script>
-
+  <script src="js/vals.js"></script>
 </body>
 
 </html>

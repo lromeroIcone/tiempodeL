@@ -86,6 +86,11 @@ $(document).ready(function(){
     var cants =new Array();
     var esps =new Array();
     var adic= new Array();
+    var tiempo = new Date();
+    var hora = tiempo.getHours();
+    var minu = tiempo.getMinutes();
+    var tos = hora+":"+ minu;
+    $('#hora').val(tos);
     if(localStorage.getItem("prods")!=null){
    	  $("#payOrder").prop("disabled",false);
     }
@@ -129,38 +134,76 @@ $(document).ready(function(){
 
         success: function(data){
             var jsonObj = jQuery.parseJSON(data);
-            var options = jsonObj[3];
-            var nuevos = jsonObj[4];
-            //console.log(nuevos);
-            $("#igds").html("");
-            $("#igds").append('<option>Elije tus ingredientes</option>');
-            if(options.length>0){
-                $("#igds-button").show();
+            var l = jsonObj.length;
+            if(l == 6){
+              var options = jsonObj[3];
+              var nuevos = jsonObj[4];
+              //console.log(nuevos);
+              $("#igds").html("");
+              $("#igds").append('<option>Elije tus ingredientes</option>');
+              if(options.length>0){
+                  $("#igds-button").show();
 
-                for(var i =0;i<options.length;i++){
-                    $("#igds").append('<option value="'+options[i][0]+'">'+options[i][1]+'</option>');
-                }
-            } else{
-              $("#igds-button").hide();
+                  for(var i =0;i<options.length;i++){
+                      $("#igds").append('<option value="'+options[i][0]+'">'+options[i][1]+'</option>');
+                  }
+              } else{
+                $("#igds-button").hide();
+              }
+              //if(nuevos.length>0){
+              if(nuevos != ""){
+                $("#guarns").html("");
+                $("#guarns").append('<option>Elige tus guarniciones</option>');
+                $("#guarns-button").show();
+
+                for(var j =0;j<nuevos.length;j++){
+                  $("#guarns").append('<option value="'+nuevos[j]+'">'+nuevos[j]+'</option>');
+  	            }
+              } else{
+                $("#guarns-button").hide();
+              }
+              $("#igds").selectmenu("refresh");
+              $("#guarns").selectmenu("refresh");
+              $(".innerDiv").find(".namepr").text(jsonObj[0]);
+              $(".innerDiv").find(".descpr").text("Descripción:");
+
+              $(".innerDiv").find(".descpr").append("<br/>"+jsonObj[2]);
+              $(".innerDiv").find(".price").text("$"+jsonObj[1]);
+            } else {
+              var options = jsonObj[3];
+              //var nuevos = jsonObj[4];
+              //console.log(nuevos);
+              $("#igds").html("");
+              $("#igds").append('<option>Elije tus ingredientes</option>');
+              if(options.length>0){
+                  $("#igds-button").show();
+
+                  for(var i =0;i<options.length;i++){
+                      $("#igds").append('<option value="'+options[i][0]+'">'+options[i][1]+'</option>');
+                  }
+              } else{
+                $("#igds-button").hide();
+              }
+              /*$("#guarns").html("");
+              $("#guarns").append('<option>Elige tus guarniciones</option>');
+              if(nuevos.length>0){
+                $("#guarns-button").show();
+
+                for(var j =0;j<nuevos.length;j++){
+                  $("#guarns").append('<option value="'+nuevos[j]+'">'+nuevos[j]+'</option>');
+  	            }
+              } else{
+                $("#guarns-button").hide();
+              }*/
+              $("#igds").selectmenu("refresh");
+              //$("#guarns").selectmenu("refresh");
+              $(".innerDiv").find(".namepr").text(jsonObj[0]);
+              $(".innerDiv").find(".descpr").text("Descripción:");
+
+              $(".innerDiv").find(".descpr").append("<br/>"+jsonObj[2]);
+              $(".innerDiv").find(".price").text("$"+jsonObj[1]);
             }
-            $("#guarns").html("");
-            $("#guarns").append('<option>Elige tus guarniciones</option>');
-            if(nuevos.length>0){
-              $("#guarns-button").show();
 
-              for(var j =0;j<nuevos.length;j++){
-                $("#guarns").append('<option value="'+nuevos[j]+'">'+nuevos[j]+'</option>');
-	            }
-            } else{
-              $("#guarns-button").hide();
-            }
-            $("#igds").selectmenu("refresh");
-            $("#guarns").selectmenu("refresh");
-            $(".innerDiv").find(".namepr").text(jsonObj[0]);
-            $(".innerDiv").find(".descpr").text("Descripción:");
-
-            $(".innerDiv").find(".descpr").append("<br/>"+jsonObj[2]);
-            $(".innerDiv").find(".price").text("$"+jsonObj[1]);
 
         },
 	       error: function(data){
