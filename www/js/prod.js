@@ -163,7 +163,7 @@ $(document).ready(function(){
                 $("#guarns-button").hide();
               }
               $("#igds").selectmenu("refresh");
-              $("#guarns").selectmenu("refresh");
+              //$("#guarns").selectmenu("refresh");
               $(".innerDiv").find(".namepr").text(jsonObj[0]);
               $(".innerDiv").find(".descpr").text("Descripción:");
 
